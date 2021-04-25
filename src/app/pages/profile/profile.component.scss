@@ -1,0 +1,59 @@
+@import '../../@theme/styles/themes';
+@import '~bootstrap/scss/mixins/breakpoints';
+@import '~@nebular/theme/styles/global/breakpoints';
+
+@include nb-install-component() {
+
+    nb-card-body {
+        width: 100%;  
+        display: flex;  
+        justify-content: space-between;
+    }
+
+    .icons{
+        nb-icon{
+            font-size: 1.5em;
+            margin-right: 1em;
+            cursor: pointer;
+        }
+    }
+
+}
+
+@mixin nb-overrides() {
+
+    nb-user{
+        .user-picture {
+            width: 10em!important;
+            height: 10em!important;
+        }
+    }
+
+}
+
+
+body {
+  font-family: 'Quicksand', sans-serif;
+  color: #324e63;
+}
+
+a, a:hover {
+  text-decoration: none;
+}
+
+.icon {
+  display: inline-block;
+  width: 1em;
+  height: 1em;
+  stroke-width: 0;
+  stroke: currentColor;
+  fill: currentColor;
+}
+
+
+
+
+
+
+
+

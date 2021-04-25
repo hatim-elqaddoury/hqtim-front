@@ -1,0 +1,102 @@
+<div class="row">
+
+    <div class="col-md-12 text-left">
+        <H2>Friends</H2><br/>
+    </div>
+
+    <nb-card class="col-md-12 text-left" >
+        <nb-card-header>
+            <div class="input-group mySearchInput">
+                <div class="input-group-prepend">
+                    <span class="input-group-text pre "><i class="fas fa-search"></i></span>
+                </div>
+                <input class="form-control" shape="semi-round" type="text" [(ngModel)]="searchValue" placeholder="Search..." nbInput fullWidth>
+                <div class="input-group-prepend ">
+                    <span class="input-group-text post">
+                        <i *ngIf="!searchValue" (click)="searchValue=null;" class="fas fa-users"></i>
+                        <i *ngIf="searchValue" (click)="searchValue=null;" class="fas fa-times"></i>
+                    </span>
+                </div>
+            </div>
+        </nb-card-header>
+
+        <nb-card-body>
+    
+            <nb-tabset fullWidth>
+                <nb-tab [tabTitle]="'Active ('+activeUsers.length+')'">
+
+                    <div class="content-container" *ngIf="users">
+                    
+                        <nb-list *ngIf="searchValue">
+                    
+                            <nb-list-item *ngFor="let u of ((users | search : searchValue) | orderBy : 'lastCnx' : true).slice(0, 10)">
+                                <div>
+                                    <nb-user class="awayStatus" 
+                                    [picture]="u.avatar || '../../../assets/images/default-profile.png'" 
+                                    [name]="u.fullname"
+                                    [size]="'large'" 
+                                    [badgeText]="(u.lastCnx | timeAgoShort)?'':' '" 
+                                    [title]="u.lastCnx | timeAgo"
+                                    [badgeStatus]="u.lastCnx==null || (u.lastCnx | timeAgoShort)?'danger':'success'"
+                                    badgePosition="bottom right">
+                                    </nb-user>
+                                </div>
+                                <div class="space-around">
+                                    <div>
+                                        <a [href]="'mailto:'+u.email">
+                                            <nb-icon icon="email-outline" pack="eva" [options]="{ animation: { type: 'pulse' } }"></nb-icon>
+                                        </a>
+                                    </div>
+                                    <div>
+                                        <a [href]="'tel:'+u.phone">
+                                            <nb-icon icon="phone-outline" pack="eva" [options]="{ animation: { type: 'pulse' } }"></nb-icon>
+                                        </a>
+                                    </div>
+                                </div>
+                            </nb-list-item>
+                    
+                        </nb-list>
+                    
+                    
+                        <nb-list *ngIf="!searchValue">
+                    
+                            <nb-list-item *ngFor="let u of (activeUsers | search : searchValue).slice(0, 10)">
+
+                                <nb-user class="onlineStatus" 
+                                [picture]="u.avatar || '../../../assets/images/default-profile.png'"
+                                [name]="u.fullname" 
+                                [size]="'large'" 
+                                [badgeText]="' '" 
+                                [title]="u.lastCnx | timeAgo"
+                                [badgeStatus]="(u.lastCnx | timeAgoShort)?'warning':'success'" 
+                                badgePosition="bottom right">
+                                </nb-user>
+                                
+                                <div class="space-around">
+                                    <div>
+                                        <a [href]="'mailto:'+u.email">
+                                            <nb-icon icon="email-outline" pack="eva" [options]="{ animation: { type: 'pulse' } }"></nb-icon>
+                                        </a>
+                                    </div>
+                                    <div>
+                                        <a [href]="'tel:'+u.phone">
+                                            <nb-icon icon="phone-outline" pack="eva" [options]="{ animation: { type: 'pulse' } }"></nb-icon>
+                                        </a>
+                                    </div>
+                                </div>
+                    
+                            </nb-list-item>
+                    
+                        </nb-list>
+                    
+                    </div>
+                </nb-tab>
+                <nb-tab [tabTitle]="'All('+(users | search : searchValue).length+')'" >
+                    <p>List of <strong>all users</strong>.</p>
+                </nb-tab>
+            </nb-tabset>
+    
+        </nb-card-body>
+    </nb-card>
+    
+</div>

@@ -1,0 +1,20 @@
+<nb-card [size]="'large'">
+  <nb-tabset fullWidth >
+    <nb-tab *ngIf="activeUsers" tabIcon="people-outline" [tabTitle]="'Active Users ('+activeUsers.length+')'">
+        <nb-list style="overflow: hidden; overflow-y: auto;">
+          <nb-list-item class="users" *ngFor="let u of activeUsers ">
+            <nb-user [picture]="u.avatar"  [name]="u.fullname" [title]="u.role" size="large" [badgeText]="'4m'" [badgeStatus]="'success'" badgePosition="bottom right"></nb-user>
+              <div class="users">
+                <nb-icon icon="award-outline" pack="eva" style="cursor: pointer;" [options]="{ animation: { type: 'shake' } }"></nb-icon>
+              </div>
+          </nb-list-item>
+        </nb-list>
+    </nb-tab>
+    <nb-tab tabIcon="message-circle-outline" [tabTitle]="'others'">
+      <div style="padding: 1em;">
+        <p> empty for now.</p>
+      </div>
+    </nb-tab>
+  </nb-tabset>
+<nb-card>  
+

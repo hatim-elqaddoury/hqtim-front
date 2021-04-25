@@ -1,0 +1,50 @@
+<div class="SpaceBetween header" >
+    <div>
+        <h4>My Cart ({{products.length}})</h4>
+    </div>
+    <div>
+        <nb-icon class="icon-button" icon="close-circle-outline" (click)="toggleShopingCartBar()"
+        [options]="{ animation: { type: 'pulse' } }" style="font-size: 1.5em;">
+        </nb-icon>
+    </div>
+</div>
+
+<nb-list class="body">
+    <nb-list-item *ngFor="let product of products"> 
+        <div class="SpaceBetween">
+            <div>
+                <nb-user
+                    [picture]="product.imgUrl" class="onlineStatus" 
+                    [name]="product.name" size="giant" shape="rectangle" [title]="product.price | currency"
+                    [badgeStatus]="'success'" badgePosition="bottom right">
+                </nb-user>
+            </div>
+            <div>
+                <div>
+                    <nb-icon class="icon-button" icon="edit-2-outline" [nbTooltip]="'Modify'" nbTooltipPlacement="bottom"
+                        [options]="{ animation: { type: 'pulse' } }">
+                    </nb-icon>
+                </div>
+                <div>
+            
+                </div>
+                <div>
+                    <nb-icon class="icon-button" icon="trash-2-outline" [nbTooltip]="'Delete'" nbTooltipPlacement="bottom"
+                        [options]="{ animation: { type: 'pulse' } }">
+                    </nb-icon>
+                </div>
+            </div>
+        </div>
+    </nb-list-item>
+
+</nb-list>
+
+<div class="footer">
+    <div class="SpaceBetween subtotal">
+        <h6>Subtotal</h6>
+        <h6>{{300.09 | currency}}</h6>
+    </div>
+    <button nbButton status="basic" outline fullWidth>
+        <h5>Checkout</h5>
+    </button>
+</div>

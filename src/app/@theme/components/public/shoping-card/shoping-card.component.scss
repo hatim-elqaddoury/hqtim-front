@@ -1,0 +1,25 @@
+@import '~bootstrap/scss/mixins/breakpoints';
+@import '~@nebular/theme/styles/global/breakpoints';
+@import '../../../styles/styles';
+
+@include nb-install-component() {
+
+    .header{
+        padding: 5px;
+        top: 0;
+        align-items: center;
+    }
+
+    .body{
+        height: calc(100% - 135px);
+    }
+
+    .footer{
+        padding: 5px;
+
+        .subtotal{
+            padding-top: 5px;
+        }
+    }
+
+} 

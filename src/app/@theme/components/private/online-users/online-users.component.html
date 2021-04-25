@@ -1,0 +1,38 @@
+<div class="sidebar-containerold">
+
+    <div class="header">
+        <span class="SpaceBetween">
+            <h6>
+                <nb-icon icon="people-outline"></nb-icon> Active Users 
+                <span *ngIf="activeUsers">({{activeUsers.length}}) </span>
+            </h6>
+
+            <h6>
+                <nb-icon class="icon-button" icon="more-horizontal-outline"
+                (click)="GoTo('friends')" nbTooltip="see all friends" nbTooltipPlacement="bottom"
+                [options]="{ animation: { type: 'pulse' } }">
+                </nb-icon>
+            </h6>
+        </span>
+    </div>
+
+    <div class="content-container" *ngIf="users">
+
+        <nb-list>
+
+            <nb-list-item *ngFor="let u of (activeUsers | search : searchValue)">
+
+                <nb-user class="onlineStatus" [picture]="u.avatar || '../../../assets/images/default-profile.png'"
+                    [name]="u.fullname" [size]="'large'" [badgeText]="' '" [title]="u.lastCnx | timeAgo"
+                    
+                    [badgeStatus]="(u.lastCnx | timeAgoShort)?'warning':'success'" badgePosition="bottom right">
+                </nb-user>
+
+            </nb-list-item>
+
+        </nb-list>
+
+    </div>
+
+
+</div>

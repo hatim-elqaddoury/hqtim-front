@@ -1,0 +1,43 @@
+<div class="row" *ngIf="user">
+
+    <div class="col-md-12 text-left">
+        <H2>Account settings</H2><br/>
+    </div>
+    
+    <div class="col-md-3 text-center">
+        <nb-card size="x-small" class="text-center">
+            <nb-card-header>
+                <h4><i class="icon ion ion-android-mail"></i> Email</h4>
+            </nb-card-header>
+            <nb-card-body>
+                <div *ngIf="user.mailVerified">
+                    <p>Your email address is verified.</p>
+                </div>
+
+                <div *ngIf="!user.mailVerified">
+                    <p>Your email address isn't verified yet.</p>
+
+                    <button nbButton outline status="primary" *ngIf="!verifyMailSent" (click)="verifyMail()">
+                        <i class="icon ion-paper-airplane"> Verify now</i></button>
+
+                    <p *ngIf="verifyMailSent">Verification mail has been sent. please verify your emails!</p>
+
+                </div>
+            </nb-card-body>
+        </nb-card>
+    </div>
+    
+    <div class="col-md-3 text-center">
+        <nb-card size="x-small" class="text-center">
+            <nb-card-header>
+                <h4><i class="icon ion ion-android-mail"></i> Password</h4>
+            </nb-card-header>
+            <nb-card-body>
+                <div >
+                    
+                </div>
+            </nb-card-body>
+        </nb-card>
+    </div>
+
+</div>

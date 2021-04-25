@@ -1,0 +1,20 @@
+@import '~bootstrap/scss/mixins/breakpoints';
+@import '~@nebular/theme/styles/global/breakpoints';
+@import '../../../styles/styles';
+
+@include nb-install-component() {
+
+    overflow: hidden;
+
+    p {
+        font-size: larger;
+    }
+
+    nb-card {
+        max-width: 1000px;
+        margin-right: auto;
+        margin-left: auto;
+        overflow-y: auto;
+
+    }
+}
