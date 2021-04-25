@@ -1,0 +1,17 @@
+<nb-layout windowMode >
+    <nb-layout-header fixed>
+        <hq-public-header></hq-public-header>
+    </nb-layout-header>
+
+    <nb-layout-column>
+        <ng-content select="router-outlet"></ng-content>
+    </nb-layout-column>
+
+    <nb-sidebar tag="ShopingCart" collapsedBreakpoints="['xs', 'is', 'sm', 'md', 'lg']" state="collapsed" responsive end >
+        <hq-shoping-card></hq-shoping-card>
+    </nb-sidebar>
+    
+    <nb-layout-footer fixed>
+        <hq-public-footer></hq-public-footer>
+    </nb-layout-footer>
+</nb-layout>

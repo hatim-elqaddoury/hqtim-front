@@ -1,0 +1,37 @@
+@import '../../../app/@theme/styles/styles';
+
+@include nb-install-component() {
+
+    overflow: hidden;
+
+    p {
+        font-size: larger;
+    }
+
+    nb-card {
+        max-width: 1000px;
+        margin-right: auto;
+        margin-left: auto;
+        overflow-y: auto;
+        .form-control-group {
+            padding: 10px 0;
+            textarea {
+                min-height: 150px;
+            }
+        }
+
+
+        .inside10 {
+            padding: 10px 0;
+        }
+    }
+
+    .error-message {
+        font-size: x-small;
+        color: nb-theme(color-danger-500);
+    }
+
+    
+    
+}
+

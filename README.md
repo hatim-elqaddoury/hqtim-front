@@ -1,2 +1,1 @@
-# hqtim-front
-Angular
+HQtim Front end Application

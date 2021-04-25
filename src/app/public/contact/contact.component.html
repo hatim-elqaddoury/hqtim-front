@@ -1,0 +1,149 @@
+<nb-card>
+
+    <nb-card-body>
+        <div class=" unselectable">
+            <h1 class="d-flex justify-content-center">Contact us</h1>
+        </div>
+    </nb-card-body>
+    <nb-card-body>
+
+        <div class="row">
+            <div class="col-md-6">
+                <form (ngSubmit)="SendMail(form);" #form="ngForm" aria-labelledby="title">
+                
+                    <div class="row">
+                        
+                        <div class="col-md-6">
+                            <div class="form-control-group">
+                                <label class="label unselectable" for="input-firstName">First name:</label>
+                                <input nbInput fullWidth [(ngModel)]="mail.firstName" #firstName="ngModel" name="firstName"
+                                    id="input-firstName" autocomplete="true" pattern=".+" minlength="2" maxlength="30"
+                                    placeholder="Your first name here" required>
+                
+                                <ng-container *ngIf="firstName.invalid && (firstName.dirty || firstName.touched)">
+                                    <p class="error-message" *ngIf="!mail.firstName">
+                                        First name is required!
+                                    </p>
+                                    <p class="error-message"
+                                        *ngIf="mail.firstName && ( 5>mail.firstName.length || mail.firstName.length>10 || firstName.errors?.pattern)">
+                                        First name format is incorrect!
+                                    </p>
+                                </ng-container>
+                            </div>
+                        </div>
+                        
+                        <div class="col-md-6">
+                            <div class="form-control-group">
+                                <label class="label unselectable" for="input-lastName">Last name:</label>
+                                <input nbInput fullWidth [(ngModel)]="mail.lastName" #lastName="ngModel" name="lastName"
+                                    id="input-lastName" autocomplete="true" pattern=".+" minlength="2" maxlength="30"
+                                    placeholder="Your last name here" required>
+                
+                                <ng-container *ngIf="lastName.invalid && (lastName.dirty || lastName.touched)">
+                                    <p class="error-message" *ngIf="!mail.lastName">
+                                        Last name is required!
+                                    </p>
+                                    <p class="error-message"
+                                        *ngIf="mail.lastName && ( 5>mail.lastName.length || mail.lastName.length>10 || lastName.errors?.pattern)">
+                                        Last name format is incorrect!
+                                    </p>
+                                </ng-container>
+                            </div>
+                        </div>
+                        
+                    </div>
+                        
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="form-control-group">
+                                <label class="label unselectable" for="input-email">Email:</label>
+                                <input nbInput fullWidth [(ngModel)]="mail.from" #email="ngModel" name="email" id="input-email"
+                                    autocomplete="true" type=“email” pattern=".+@.+..+" minlength="5" maxlength="50"
+                                    placeholder="Your email here" required>
+                
+                                <ng-container *ngIf="email.invalid && (email.dirty || email.touched)">
+                                    <p class="error-message" *ngIf="!mail.from">
+                                        Email is required!
+                                    </p>
+                                    <p class="error-message"
+                                        *ngIf="mail.from && ( 5>mail.from.length || mail.from.length>10 || email.errors?.pattern)">
+                                        Email format is incorrect!
+                                    </p>
+                                </ng-container>
+                            </div>
+                        </div>
+                        
+                        <div class="col-md-6">
+                            <div class="form-control-group">
+                                <label class="label unselectable" for="input-phone">Phone:</label>
+                                <input nbInput fullWidth [(ngModel)]="mail.phone" #phone="ngModel" name="phone" id="input-phone"
+                                    type="tel" autocomplete="true" minlength="10" maxlength="15"
+                                    placeholder="Your phone here (Optional)">
+                                    
+                                <ng-container *ngIf="phone.invalid && (phone.dirty || phone.touched)">
+                                    <p class="error-message"
+                                        *ngIf="mail.phone && ( 10>mail.phone.length || mail.phone.length>15 || phone.errors?.pattern)">
+                                        Phone format is incorrect!
+                                    </p>
+                                </ng-container>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="form-control-group">
+                                <label class="label unselectable" for="input-subject">Subject:</label>
+                                <input nbInput fullWidth [(ngModel)]="mail.subject" #subject="ngModel" name="subject" id="input-subject"
+                                    autocomplete="true" minlength="5" maxlength="50" placeholder="Subject" required>
+
+                                <ng-container *ngIf="subject.invalid && (subject.dirty || subject.touched)">
+                                    <p class="error-message" *ngIf="!mail.subject">
+                                        Subject is required!
+                                    </p>
+                                </ng-container>
+                            </div>
+                        </div>
+                        <div class="col-md-12">
+                            <div class="form-control-group">
+                                <label class="label unselectable" for="input-content">Content:</label>
+                                <textarea nbInput fullWidth [(ngModel)]="mail.content" #content="ngModel" name="content"
+                                    id="input-content" placeholder="Place your content here..." maxlength="1000" max required></textarea>
+                                    
+                                <ng-container *ngIf="content.invalid && (content.dirty || content.touched)">
+                                    <p class="error-message" *ngIf="content.errors.required">
+                                        Content should not be empty!
+                                    </p>
+                                </ng-container>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="form-control-group">
+                                <button nbButton status="primary" fullWidth
+                                    [disabled]=' !mail.firstName || !mail.lastName || !mail.from || !mail.subject || !mail.content '>
+                                    <h6>Send</h6>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                
+                </form>
+            </div>
+            
+            <div class="col-md-6">
+
+                <div class="row">
+                    <div class="col-md-12 inside10">
+                        <a href="mailto:HQtim.com (contact) <contact@hqtim.com>">or via mail</a>
+                    </div>
+                </div>
+                
+
+            </div>
+        </div>
+
+    </nb-card-body>
+</nb-card>

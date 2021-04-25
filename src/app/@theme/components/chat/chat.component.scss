@@ -1,0 +1,138 @@
+@import '~bootstrap/scss/mixins/breakpoints';
+@import '~@nebular/theme/styles/global/breakpoints';
+@import '../../../@theme/styles/themes';
+
+@include nb-install-component() {
+  ::ng-deep nb-layout-column {
+    justify-content: center;
+    display: flex;
+  }
+
+  nb-chat {
+    padding: 0;
+    width: 400px;
+  }
+
+  nb-chat-message {
+    display: flex;
+    flex-direction: row;
+
+    .message {
+      flex: 1;
+    }
+
+    .avatar {
+      border-radius: 50%;
+      flex-shrink: 0;
+      background: black!important;
+      background-position: center;
+      background-size: cover;
+      background-repeat: no-repeat;
+      width: 5.5rem;
+      height: 5.5rem;
+      text-align: center;
+      line-height: 2.5rem;
+      font-size: 0.875rem;
+      //color: rgb(0, 0, 0);
+    }
+  }
+
+
+  .chat-container {
+    li {
+      padding-top: 0rem;
+    }
+  }
+
+  .chart-description {
+    text-align: center;
+    margin: 0 auto;
+    width: 52%;
+  }
+
+  .chart-features {
+    margin-top: 2.75rem;
+  }
+
+  @include media-breakpoint-down(xxl) {
+    nb-chat {
+      width: 400px;
+    }
+  }
+
+  @include media-breakpoint-down(md) {
+    nb-chat {
+      width: 400px;
+    }
+
+    .chart-description {
+      width: 90%;
+    }
+  }
+
+  @include media-breakpoint-down(is) {
+    nb-chat {
+      width: 300px;
+    }
+  }
+
+     .menu-sidebar ::ng-deep .scrollable {
+       padding-top: nb-theme(layout-padding-top);
+     }
+
+     .messsageBox {
+       position: absolute;
+       bottom: 160px;
+       right: 25px;
+     }
+
+     hq-chatbot {
+       //background-color: green!important;
+       padding: 0;
+     }
+
+     #chatbotButton {
+       cursor: pointer;
+       border-radius: 15px;
+       position: absolute;
+       bottom: 70px;
+       right: 20px;
+
+       &:focus {
+         .ion {
+           -webkit-transform: rotate(360deg);
+           -moz-transform: rotate(360deg);
+           -o-transform: rotate(360deg);
+           transform: rotate(360deg);
+           -webkit-transition-duration: 0.2s;
+           -moz-transition-duration: 0.2s;
+           -o-transition-duration: 0.2s;
+           transition-duration: 0.2s;
+         }
+       }
+     }
+
+
+     @include media-breakpoint-down(sm) {
+       .small-control-item {
+         display: block;
+       }
+
+       .medium-control-item {
+         display: none;
+         border: none;
+       }
+     }
+
+     @include media-breakpoint-up(md) {
+       .small-control-item {
+         display: none;
+         border: none;
+       }
+
+       .medium-control-item {
+         display: block;
+       }
+     }
+}
+

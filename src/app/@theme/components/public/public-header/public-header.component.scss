@@ -1,0 +1,165 @@
+@import '~bootstrap/scss/mixins/breakpoints';
+@import '~@nebular/theme/styles/global/breakpoints';
+@import '../../../styles/styles';
+
+@include nb-install-component() {
+  -webkit-user-select: none;
+  -webkit-touch-callout: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  
+  display: flex;
+  // justify-content: space-between;
+  width: 100%;
+
+  .text_logo {
+    font-family: 'Long Cang', cursive;
+    font-weight: 1000;
+    font-size: 3em;
+    cursor: pointer;
+  }
+
+  // .logo-container {
+  //   display: flex;
+  //   cursor: pointer;
+  //   align-items: center;
+  //   //width: calc(#{nb-theme(sidebar-width)} - #{nb-theme(header-padding)});
+  // }
+
+  .menu{
+    justify-content: center;
+    font-size: larger;
+    font-weight: bold;
+     a {
+       padding: 0.4rem;
+       transition: color ease-out 0.1s;
+
+       &:hover {
+         color: nb-theme(text-basic-color);
+         text-decoration: underline;
+       }
+     }
+  }
+
+  nb-action {
+    // border-left: 1px solid nb-theme(text-hint-color);
+    border: none;
+    height: auto;
+    display: flex;
+    align-content: center;
+    nb-icon {
+      font-size: 1.3rem;
+    }
+    nb-icon:hover{
+      cursor: pointer;
+      transform: scale(1.2);
+      opacity: 1.5;
+      color: nb-theme(text-basic-color);
+    }
+    a:hover{
+      transform: scale(1.001);
+      opacity: 1.5;
+      color: nb-theme(text-basic-color);
+    }
+    .icon-wrapper {
+        position: relative;
+        float: left;
+        cursor: pointer;
+
+        .badge {
+          background: nb-theme(text-basic-color);
+          color: nb-theme(background-basic-color-1);
+          min-width: 1.5em;
+          max-width: 2.5em;
+          height: auto;
+          margin: 0;
+          border-radius: 50%;
+          position: absolute;
+          top: -4px;
+          right: -8px;
+          padding: 2.5px;
+          font-weight: bold;
+          font-size: x-small;
+          text-align: center;
+        }
+
+        nb-icon {
+          font-size: 20px;
+          //margin-top: 2px;
+        }
+    }
+
+  }
+
+
+  nb-user {
+    cursor: pointer;
+  }
+
+  ::ng-deep nb-search button {
+    padding: 0!important;
+  }
+
+  .header-container {
+    //display: flex;
+    align-items: center;
+    width: auto;
+    padding-top: auto;
+
+    .sidebar-toggle {
+      @include nb-ltr(padding-right, 1.25rem);
+      @include nb-rtl(padding-left, 1.25rem);
+      text-decoration: none;
+      color: nb-theme(text-hint-color);
+      nb-icon {
+        font-size: 1.75rem;
+      }
+    }
+
+    .logo {
+      justify-content: flex-start;
+    }
+
+    nb-actions{
+      justify-content: flex-end;
+    }
+
+  }
+
+  
+
+   @include media-breakpoint-up(md) {
+     .laptop {
+       display: flex;
+     }
+     .phone {
+       display: none;
+     }
+   }
+
+  @include media-breakpoint-down(md) {
+    font-size: smaller;
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+
+    .control-item {
+      display: block;
+    }
+
+    .laptop {
+      display: none;
+    }
+    .phone {
+      display: none;
+    } 
+
+    nb-select {
+    display: none;
+    }
+  }
+
+
+
+}
